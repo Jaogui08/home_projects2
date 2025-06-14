@@ -29,7 +29,7 @@ public class Main_rpg {
 		int bossAttack;
 		System.out.println("\nVocê entrou em batalha com o boss, cuidado com os ataques!\n");
 
-		while (playerHp >= 0 || bossHp >= 0) {
+		while (playerHp >= 0 && bossHp >= 0) {
 			if (playerUlt == 3) {
 				System.out.println("==== Sua rodada ====");
 				System.out.println("==== ULTIMATE PRONTA! ====");
@@ -74,13 +74,13 @@ public class Main_rpg {
 				System.out.println("\nSeu ataque foi defendido pelo boss!");
 			} else if (playerAttack == 1 && bossAttack == 1 || playerAttack == 1 && bossAttack == 2 || playerAttack == 1 && bossAttack == 4) {
 				bossHp = bossHp - 25;
-				System.out.println("\nSeu ataque surgiu efeito no boss! ==  Boss HP - " + bossHp);
+				System.out.println("\nSeu ataque surgiu efeito no boss! ==  Boss HP = " + bossHp);
 			} else if (playerAttack == 2 && bossAttack == 2 || playerAttack == 2 && bossAttack == 1 || playerAttack == 1 && bossAttack == 4) {
 				bossHp = bossHp - 40;
-				System.out.println("\nSeu ataque pesado surgiu efeito no boss! ==  Boss HP - " + bossHp);
+				System.out.println("\nSeu ataque pesado surgiu efeito no boss! ==  Boss HP = " + bossHp);
 			} else if (playerAttack == 4 && bossAttack == 1 || playerAttack == 4 && bossAttack == 2 || playerAttack == 4 && bossAttack == 3 || playerAttack == 4 && bossAttack == 4) {
 				bossHp = bossHp - 90;
-				System.out.println("\nSua ultimate surgiu um dano MASSIVO no boss! ==  Boss HP - " + bossHp);
+				System.out.println("\nSua ultimate surgiu um dano MASSIVO no boss! ==  Boss HP = " + bossHp);
 				playerUlt = playerUlt - playerUlt;
 			}
 			
@@ -88,13 +88,13 @@ public class Main_rpg {
 				System.out.println("\nVocê defendeu o ataque do boss!\n");
 			} else if (bossAttack == 1 && playerAttack == 1 || bossAttack == 1 && playerAttack == 2 || bossAttack == 1 && playerAttack == 4) {
 				playerHp = playerHp - 20;
-				System.out.println("\nVocê sofreu um ataque do boss! ==  Player HP - " + playerHp + "\n");
+				System.out.println("\nVocê sofreu um ataque do boss! ==  Player HP = " + playerHp + "\n");
 			} else if (bossAttack == 2 && playerAttack == 1 || bossAttack == 2 && playerAttack == 2 || bossAttack == 2 && playerAttack == 4) {
 				playerHp = playerHp - 35;
-				System.out.println("\nVocê sofreu um ataque pesado do boss! ==  Player HP - " + playerHp + "\n");
+				System.out.println("\nVocê sofreu um ataque pesado do boss! ==  Player HP = " + playerHp + "\n");
 			} else if (bossAttack == 4 && playerAttack == 1 || bossAttack == 4 && playerAttack == 2 || bossAttack == 4 && playerAttack == 3 || bossAttack == 4 && playerAttack == 4) {
 				playerHp = playerHp - 65;
-				System.out.println("\nVocê sofreu um dano MASSIVO da ultimate do boss! ==  Player HP - " + playerHp + "\n");
+				System.out.println("\nVocê sofreu um dano MASSIVO da ultimate do boss! ==  Player HP = " + playerHp + "\n");
 				bossUlt = bossUlt - bossUlt;
 			}
 			
@@ -107,6 +107,9 @@ public class Main_rpg {
 		} else if (playerHp < bossHp) {
 			System.out.println("==== YOU DIED ====");
 			System.out.println("Você foi derrotado");
+		} else {
+			System.out.println("===== FIM DE JOGO =====");
+			System.out.println("Ambos foram derrotados na batalha...");
 		}
 		
 		scanner.close();
